@@ -177,12 +177,12 @@ func (bad baremetalAutomatedDeployment) PrepareAutomation(requirements map[strin
 				}
 			}
 		}
+	}
 
-		err = utils.ReplaceFileText(rhcosVersionsPath, "VIRTUALIZED_INSTALL=false", "VIRTUALIZED_INSTALL=true")
+	err = utils.ReplaceFileText(rhcosVersionsPath, "VIRTUALIZED_INSTALL=false", "VIRTUALIZED_INSTALL=true")
 
-		if err != nil {
-			return fmt.Errorf("baremetalAutomatedDeployment: PrepareAutomation: error injecting virtualized install setting: %s", err)
-		}
+	if err != nil {
+		return fmt.Errorf("baremetalAutomatedDeployment: PrepareAutomation: error injecting virtualized install setting: %s", err)
 	}
 
 	log.Printf("baremetalAutomatedDeployment: PrepareAutomation: finished injecting version selections into automation repo\n")
